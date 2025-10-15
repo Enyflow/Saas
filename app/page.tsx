@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button";
 import Companioncard from "@/components/ui/companioncard";
 import Companionslist from "@/components/ui/companionslist";
 import {Cta} from "@/components/ui/CTA";
+import {recentSessions} from "@/constants";
 
 const Page = () => {
   return (
@@ -13,8 +14,15 @@ const Page = () => {
             <Companioncard id={"22"}  name={"Countsy"} topic={"Derivatives"} subject={"Maths"} duration={30} color={"#E6F9E6"}/>
             <Companioncard id={"33"}  name={"Verba"} topic={"Literature"} subject={"English"} duration={30} color={"#FFFACD"}/>
         </section>
+
         <section className={"home-section"}>
-            <Companionslist/>
+            <Companionslist
+            title="completed recently"
+            companions={recentSessions}
+            className="w-2/3 max-lg:w-full"
+            />
+
+
             <Cta/>
 
         </section>

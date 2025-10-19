@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/form"
 import {subjects} from "@/constants";
 import {Textarea} from "@/components/ui/textarea";
+import {createCompanion} from "@/lib/actions/companion.actions";
+import {redirect} from "next/navigation";
 
 
 const formSchema = z.object({
@@ -38,12 +40,14 @@ const formSchema = z.object({
         .string()
         .min(1,{message:'Style is required'}),
     duration: z
-        .number()
+        .coerce.number()
         .min(1,{message:'Duration is required'}),
 
 })
 
+
 const Companionform = () => {
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -56,9 +60,17 @@ const Companionform = () => {
         },
     })
 
-    const onSubmit =(data: z.infer<typeof formSchema>) =>{
+    const onSubmit = async (data: z.infer<typeof formSchema>) =>{
         // Do something with the form values.
-        console.log(data)
+        const companion = await createCompanion(data);
+        if (companion) {
+            redirect(`/companions/${companion.id}`);
+        }
+        else {
+            console.log("Failed create companion");
+            redirect(`/`);
+        }
+
     }
 
     return (

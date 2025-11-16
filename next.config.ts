@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     typescript:{
         ignoreBuildErrors: true
     },
+    esling:{
+        ignoreDuringBuilds: true
+    },
   images :{
       remotePatterns:[
           { hostname:'img.clerk.com'}

@@ -1,7 +1,4 @@
 <<<<<<< HEAD
-Deploy:
-https://saas-eoxb3ts0u-denis-projects-e751b0e8.vercel.app/
-
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

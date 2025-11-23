@@ -1,4 +1,5 @@
 import React from 'react'
+export const dynamic = "force-dynamic";
 import {Button} from "@/components/ui/button";
 import Companioncard from "@/components/ui/companioncard";
 import Companionslist from "@/components/ui/companionslist";
